@@ -5,8 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // Get your ngrok URL from an environment variable (recommended) or hardcode it temporarily
 // Example: NGROK_URL=https://1234abcd.ngrok.io
-const NGROK_URL = process.env.VITE_NGROK_URL || 'https://76409cff2d01.ngrok-free.app';
-const isNgrok = NGROK_URL.includes("ngrok");
+//const NGROK_URL = process.env.VITE_NGROK_URL || 'https://76409cff2d01.ngrok-free.app';
+//const isNgrok = NGROK_URL.includes("ngrok");
+const disableHmr = process.env.VITE_DISABLE_HMR || false;
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -26,12 +27,6 @@ export default defineConfig({
       ".ngrok.io",
     ],
     // --- TMA-SPECIFIC FIX ---
-    hmr: isNgrok
-      ? false // << DISABLE HMR COMPLETELY for Telegram loads
-      : {
-          protocol: "ws",
-          host: "localhost",
-          port: 5173,
-        },
+   hmr: disableHmr ? false : { protocol: "ws", host: "localhost", port: 5173 },
   },
 });
