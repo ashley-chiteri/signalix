@@ -13,6 +13,7 @@ export default function GetStartedPage() {
     if (!input.includes("@") || input.length < 5) {
       showToast("error", "Invalid email", "Please check and try again.");
       return;
+      setReferralCode(null);
     }
     navigate("/auth"); // move to Telegram login page
   };

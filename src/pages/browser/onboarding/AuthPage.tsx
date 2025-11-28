@@ -34,6 +34,8 @@ export default function AuthPage() {
         // else, create account and redirect to checkout
       console.log("Authenticated user:", userData);
       toast.success('Telegram authentication successful!');
+      // fix this later
+      setIsAuthPending(true);
       navigate("/dashboard");
     }, []);
 
