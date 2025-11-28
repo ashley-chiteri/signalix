@@ -10,6 +10,7 @@ const NGROK_URL = process.env.VITE_NGROK_URL || 'https://76409cff2d01.ngrok-free
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  publicDir: 'public',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
